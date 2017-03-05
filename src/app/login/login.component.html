@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">{{titulo}}</h3>
+		</div>
+		<div class="panel-body">
+			<form novalidate [formGroup]="form">
+				<div class="form-group">
+					<label for="user">Usuario:</label>
+					<input type="text" class="form-control" id="user" formControlName="user">
+					<div *ngIf="form.controls.user.errors && form.controls.user.touched">
+						<div *ngIf="form.controls.user.errors.required" class="alert alert-danger">
+							El campo es requerido
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="user">Password:</label>
+					<input type="password" class="form-control" id="pass" formControlName="pass">
+					<div *ngIf="form.controls.pass.errors && form.controls.pass.touched">
+						<div *ngIf="form.controls.pass.errors.required" class="alert alert-danger">
+							El campo es requerido
+						</div>
+					</div>
+				</div>
+				<div *ngIf="error" class="alert alert-danger">
+					usuario o contraseña incorrectos.
+				</div>
+				<button class="btn btn-primary" (click)="login(form.value)">Login</button>
+			</form>
+		</div>
+	</div>
+</div>

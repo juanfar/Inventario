@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#" class="nav-link" routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li><a href="#" class="nav-link" routerLink="/clientes" routerLinkActive="active">Clientes</a></li>
+        <li><a href="#" class="nav-link" routerLink="/contactos" routerLinkActive="active">Contactos</a></li>
+        <li><a href="#" class="nav-link" routerLink="/inventario" routerLinkActive="active">Inventario</a></li>
+      </ul>
+      <div class="derecha">
+        <button *ngIf="!auth.isLoggedIn()" class="btn btn-outline-success" (click)="Login()">Login</button>
+        <span *ngIf="auth.isLoggedIn()">
+          {{auth.userName}}
+          <button class="btn btn-outline-success" (click)="Logout()">Logout</button>
+        </span>
+      </div>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
